@@ -1,13 +1,20 @@
 // AnswerSelect.tsx
 
 import React, { ReactNode, useState } from "react";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  SelectChangeEvent,
+} from "@mui/material";
 import styles from "./style.module.css";
 import { renderToStaticMarkup } from "react-dom/server";
 
 interface AnswerSelectProps {
   number: number;
   values: string[];
+  onChange: (item: string) => void;
   answer: string;
   question?: ReactNode;
   html?: ReactNode;
@@ -16,11 +23,18 @@ interface AnswerSelectProps {
 const AnswerSelect: React.FC<AnswerSelectProps> = ({
   number,
   values,
+  onChange,
   answer,
   question,
   html,
 }) => {
   const [value, setValue] = useState<string>();
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setValue(event.target.value);
+    alert(event.target.value === answer ? "〇" : "×");
+    onChange(event.target.value === answer ? "〇" : "×");
+  };
   return (
     <div className={styles.page}>
       <InputLabel>問題{number}</InputLabel>
@@ -34,7 +48,7 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
         <InputLabel>回答{number}</InputLabel>
         <Select
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event) => handleChange(event)}
           label="answer"
         >
           <MenuItem value="">
