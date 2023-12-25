@@ -60,7 +60,7 @@ export default function Home() {
             <Select
               value={answer1}
               onChange={handleChangeAnswer1}
-              label="question1"
+              label="answer1"
             >
               <MenuItem value="">
                 <em>未選択</em>
