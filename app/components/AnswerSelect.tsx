@@ -9,7 +9,7 @@ interface AnswerSelectProps {
   number: number;
   values: string[];
   answer: string;
-  question?: string;
+  question?: ReactNode;
   html?: ReactNode;
 }
 
@@ -24,7 +24,11 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
   return (
     <div className={styles.page}>
       <InputLabel>問題{number}</InputLabel>
-      {question && <InputLabel>{question}</InputLabel>}
+      {question && (
+        <div className={styles.question}>
+          <InputLabel>{question}</InputLabel>
+        </div>
+      )}
       {html && <div className={styles.node}>{html}</div>}
       <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel>回答{number}</InputLabel>

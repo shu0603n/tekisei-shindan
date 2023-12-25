@@ -6,3 +6,20 @@
 .node {
   color: black;
 }
+
+.answerBox {
+  width: 150px;
+  height: 100px;
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  font-weight: 700;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question {
+  width: 500px;
+}
