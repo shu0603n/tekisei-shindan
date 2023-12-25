@@ -20,17 +20,7 @@ export default function Home() {
   const handleChangeAnswer = (event: SelectChangeEvent) => {
     setAnswer(event.target.value);
   };
-  // useEffect(() => {
-  //   // APIエンドポイントを呼び出す例
-  //   fetch("/api/hello")
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // }, []);
 
-  // return (
-  //   // コンポーネントの中身
-  //   <div>My App</div>
-  // );
   type AnswerType = {
     number: number;
     values: string[];
@@ -46,7 +36,48 @@ export default function Home() {
       values: VALUES,
       answer: "A",
       question: "この問題を解きなさい",
-      html: <div>test</div>,
+      html: (
+        <>
+          <Image
+            src="/images/q1.png"
+            alt="your_image_alt"
+            width={500}
+            height={500}
+          />
+          <div className={styles.child}>
+            <InputLabel>A</InputLabel>
+            <Image
+              src="/images/q1-a.png"
+              alt="your_image_alt"
+              width={100}
+              height={100}
+            />
+            <InputLabel>B</InputLabel>
+            <Image
+              src="/images/q1-b.png"
+              alt="your_image_alt"
+              width={100}
+              height={100}
+            />
+          </div>
+          <div className={styles.child}>
+            <InputLabel>C</InputLabel>
+            <Image
+              src="/images/q1-c.png"
+              alt="your_image_alt"
+              width={100}
+              height={100}
+            />
+            <InputLabel>C</InputLabel>
+            <Image
+              src="/images/q1-d.png"
+              alt="your_image_alt"
+              width={100}
+              height={100}
+            />
+          </div>
+        </>
+      ),
     },
     {
       number: 2,
@@ -60,13 +91,13 @@ export default function Home() {
       values: VALUES,
       answer: "A",
       question: "この問題を解きなさい",
-      html: <div>test3</div>,
+      html: <>aaaaa</>,
     },
   ];
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className={styles.page}>
+      <div className={styles.home}>
         {data.map((item, idx) => (
           <AnswerSelect
             key={idx + 1}
