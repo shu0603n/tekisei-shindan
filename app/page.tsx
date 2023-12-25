@@ -78,16 +78,16 @@ export default function Home() {
           <Button
             onClick={() => {
               alert(
-                {'1':answer1 === 'A' ,
-                '2':answer2 === 'A' ,
-                '3':answer3 === 'A' ,
+                {'1':answer1 === 'C' ,
+                '2':answer2 === 'B' ,
+                '3':answer3 === 'B' ,
                 '4':answer4 === 'A' ,
-                '5':answer5 === 'A' ,
-                '6':answer6 === 'A' ,
+                '5':answer5 === 'D' ,
+                '6':answer6 === 'D' ,
                 '7':answer7 === 'A' ,
-                '8':answer8 === 'A' ,
+                '8':answer8 === 'C' ,
                 '9':answer9 === 'A' ,
-                '10':answer10 === 'A' ,});
+                '10':answer10 === 'B' ,});
             }}
           >
             回答する
