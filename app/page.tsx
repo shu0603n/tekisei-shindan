@@ -52,9 +52,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className={styles.page}>
         <div className={styles.page}>
-          <InputLabel>ああああああああああああああああああああああああああああああああああ</InputLabel>
+          <InputLabel>問題①</InputLabel>
+          <InputLabel>この問題を解きなさい</InputLabel>
+
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel>問題①</InputLabel>
+            <InputLabel>回答①</InputLabel>
             <Select
               value={answer1}
               onChange={handleChangeAnswer1}
@@ -72,15 +74,25 @@ export default function Home() {
         </div>
 
 
-            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-              <Button
-                onClick={() => {
-                  alert(answer1);
-                }}
-              >
-                回答する
-              </Button>
-            </FormControl>
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+          <Button
+            onClick={() => {
+              alert(
+                {'1':answer1 === 'A' ,
+                '2':answer2 === 'A' ,
+                '3':answer3 === 'A' ,
+                '4':answer4 === 'A' ,
+                '5':answer5 === 'A' ,
+                '6':answer6 === 'A' ,
+                '7':answer7 === 'A' ,
+                '8':answer8 === 'A' ,
+                '9':answer9 === 'A' ,
+                '10':answer10 === 'A' ,});
+            }}
+          >
+            回答する
+          </Button>
+        </FormControl>
       </div>
     </main>
   )
