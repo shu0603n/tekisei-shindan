@@ -490,7 +490,7 @@ export default function Home() {
                 const requestData = {
                   // ここにPOSTで送りたいデータを追加
                   name: name,
-                  answer: [
+                  answers: [
                     answer1,
                     answer2,
                     answer3,
