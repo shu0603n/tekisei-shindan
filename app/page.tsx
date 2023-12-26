@@ -8,10 +8,16 @@ import {
   Grid,
   InputLabel,
   TextField,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
 } from "@mui/material";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import AnswerSelect from "./components/AnswerSelect";
 import AnswerBox from "./components/AnswerBox";
+import MenuIcon from '@mui/icons-material/Menu';
+
 
 export default function Home() {
   const [name, setName] = useState<string>();
@@ -491,65 +497,81 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <TextField id="name" label="氏名" variant="outlined" value={name} onChange={(event)=>{setName(event.target.value)}} />
-        </Grid>
-        <Grid item xs={12}>
-          <Grid container spacing={3}>
-            {data.map((item, idx) => (
-              <AnswerSelect
-                key={idx + 1}
-                number={idx + 1}
-                values={item.values}
-                onChange={item.onChange}
-                answer={item.answer}
-                question={item.question}
-                html={item.html}
-              />
-            ))}
+    <>
+      <AppBar position="static">
+          <Toolbar variant="dense">
+            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" color="inherit" component="div">
+              Tribeグループ エンジニア適正テスト
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <TextField id="name" label="氏名" variant="outlined" value={name} onChange={(event)=>{setName(event.target.value)}} />
           </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <Button
-              onClick={() => {
-                const requestData = {
-                  // ここにPOSTで送りたいデータを追加
-                  name: name,
-                  answers: [
-                    answer1,
-                    answer2,
-                    answer3,
-                    answer4,
-                    answer5,
-                    answer6,
-                    answer7,
-                    answer8,
-                    answer9,
-                    answer10,
-                  ],
-                  // 他のデータも必要に応じて追加
-                };
+          {(name?.length?? 0)>1 && 
+          <>
+            <Grid item xs={12}>
+              <Grid container spacing={3}>
+                {data.map((item, idx) => (
+                  <AnswerSelect
+                    key={idx + 1}
+                    number={idx + 1}
+                    values={item.values}
+                    onChange={item.onChange}
+                    answer={item.answer}
+                    question={item.question}
+                    html={item.html}
+                  />
+                ))}
+              </Grid>
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                <Button
+                  onClick={() => {
+                    const requestData = {
+                      // ここにPOSTで送りたいデータを追加
+                      name: name,
+                      answers: [
+                        answer1,
+                        answer2,
+                        answer3,
+                        answer4,
+                        answer5,
+                        answer6,
+                        answer7,
+                        answer8,
+                        answer9,
+                        answer10,
+                      ],
+                      // 他のデータも必要に応じて追加
+                    };
 
-                fetch("/api/send-mail", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(requestData),
-                })
-                  .then((response) => response.json())
-                  .then((data) => alert("テスト結果を送信しました。"))
-                  .catch((error) => console.error("Error:", error));
-              }}
-            >
-              回答する
-            </Button>
-          </FormControl>
+                    fetch("/api/send-mail", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(requestData),
+                    })
+                      .then((response) => response.json())
+                      .then((data) => alert("テスト結果を送信しました。"))
+                      .catch((error) => console.error("Error:", error));
+                  }}
+                >
+                  回答する
+                </Button>
+              </FormControl>
+            </Grid>
+          </>
+          }
         </Grid>
-      </Grid>
-    </main>
+      </main>
+    </>
   );
 }
