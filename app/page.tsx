@@ -513,7 +513,7 @@ export default function Home() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      //<main className="flex min-h-screen flex-col items-center justify-between p-24">
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <TextField id="name" label="氏名" variant="outlined" value={name} onChange={(event)=>{setName(event.target.value)}} />
@@ -579,7 +579,7 @@ export default function Home() {
           </>
           }
         </Grid>
-      </main>
+      //</main>
     </>
   );
 }
