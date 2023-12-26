@@ -10,10 +10,11 @@
 
 .answerBox {
   width: 100%;
-  height: 100%;
+  height: 100px;
   color: white;
   border-radius: 20px;
   padding: 20px;
+  font-size: medium;
   font-weight: 700;
   background-color: blue;
   display: flex;
