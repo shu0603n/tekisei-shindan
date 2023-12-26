@@ -509,7 +509,7 @@ export default function Home() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" component="div">
-            エンジニア適正テスト
+            エンジニア適正診断
           </Typography>
         </Toolbar>
       </AppBar>
