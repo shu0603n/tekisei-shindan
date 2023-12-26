@@ -92,6 +92,8 @@ export default function Home() {
               width={100}
               height={100}
             />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <Image
               src="/images/d12.png"
@@ -108,6 +110,8 @@ export default function Home() {
               width={100}
               height={100}
             />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <Image
               src="/images/d14.png"
@@ -143,6 +147,8 @@ export default function Home() {
               width={100}
               height={100}
             />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <Image
               src="/images/d22.png"
@@ -159,6 +165,8 @@ export default function Home() {
               width={100}
               height={100}
             />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <Image
               src="/images/d24.png"
@@ -189,14 +197,16 @@ export default function Home() {
           <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="線の交差が1つずつ増えている" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="線が1つずつ増えている" />
           </Grid>
           <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="法則性はない" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="線が1つずつ増えている" />
           </Grid>
@@ -222,14 +232,16 @@ export default function Home() {
           <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="左から順に丸が時計回りに移動している" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="ひし形がランダムに移動している" />
           </Grid>
           <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="ひし形がランダムに移動している" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="法則性はない" />
           </Grid>
@@ -256,14 +268,16 @@ export default function Home() {
           <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="A" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="B" />
           </Grid>
           <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="C" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="D" />
           </Grid>
@@ -290,14 +304,16 @@ export default function Home() {
           <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="A" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="B" />
           </Grid>
           <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="C" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="D" />
           </Grid>
@@ -329,6 +345,8 @@ export default function Home() {
               width={100}
               height={100}
             />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <Image
               src="/images/d72.png"
@@ -345,6 +363,8 @@ export default function Home() {
               width={100}
               height={100}
             />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <Image
               src="/images/d74.png"
@@ -381,6 +401,8 @@ export default function Home() {
               width={100}
               height={100}
             />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <Image
               src="/images/d82.png"
@@ -397,6 +419,8 @@ export default function Home() {
               width={100}
               height={100}
             />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <Image
               src="/images/d84.png"
@@ -420,14 +444,16 @@ export default function Home() {
           <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="Ruby" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="プログラミング言語" />
           </Grid>
           <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="実行" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="Java" />
           </Grid>
@@ -446,14 +472,16 @@ export default function Home() {
           <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="不確実性" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="データ" />
           </Grid>
           <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="制約" />
-
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="結果" />
           </Grid>
@@ -513,7 +541,7 @@ export default function Home() {
                   body: JSON.stringify(requestData),
                 })
                   .then((response) => response.json())
-                  .then((data) => console.log(data))
+                  .then((data) => alert("テスト結果を送信しました。"))
                   .catch((error) => console.error("Error:", error));
               }}
             >
