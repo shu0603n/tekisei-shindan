@@ -504,7 +504,7 @@ export default function Home() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" component="div">
-              Tribeグループ エンジニア適正テスト
+              エンジニア適正テスト
             </Typography>
           </Toolbar>
         </AppBar>
