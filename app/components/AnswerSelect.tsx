@@ -9,6 +9,7 @@ import {
   SelectChangeEvent,
   Grid,
   Card,
+  Typography,
 } from "@mui/material";
 
 interface AnswerSelectProps {
@@ -39,7 +40,9 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
       <Card color="primary">
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           <Grid item xs={11}>
-            <InputLabel>問題{number}</InputLabel>
+            <Typography variant="h1" component="h2">
+              問題{number}
+            </Typography>
           </Grid>
 
           <Grid item xs={11}>
