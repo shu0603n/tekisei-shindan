@@ -40,7 +40,7 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
       <Card color="primary">
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           <Grid item xs={11}>
-            <Typography variant="h1" component="h2">
+            <Typography variant="h3" component="h2">
               問題{number}
             </Typography>
           </Grid>
