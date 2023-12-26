@@ -7,16 +7,16 @@ import {
   Select,
   MenuItem,
   SelectChangeEvent,
+  Grid,
 } from "@mui/material";
 import styles from "./style.module.css";
-import { renderToStaticMarkup } from "react-dom/server";
 
 interface AnswerSelectProps {
   number: number;
   values: string[];
   onChange: (item: string) => void;
   answer: string;
-  question?: ReactNode;
+  question?: string;
   html?: ReactNode;
 }
 
@@ -32,36 +32,51 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
 
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value);
-    alert(event.target.value === answer ? "〇" : "×");
     onChange(event.target.value === answer ? "〇" : "×");
   };
   return (
-    <div className={styles.page}>
-      <InputLabel>問題{number}</InputLabel>
-      {question && (
-        <div className={styles.question}>
-          <InputLabel>{question}</InputLabel>
-        </div>
-      )}
-      {html && <div className={styles.node}>{html}</div>}
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel>回答{number}</InputLabel>
-        <Select
-          value={value}
-          onChange={(event) => handleChange(event)}
-          label="answer"
-        >
-          <MenuItem value="">
-            <em>未選択</em>
-          </MenuItem>
-          {values?.map((item, key) => (
-            <MenuItem key={key} value={item}>
-              {item}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
+    <Grid item xs={12}>
+      <Grid container spacing={3} justifyContent="center" alignItems="center">
+        <Grid item xs={12}>
+          <InputLabel>問題{number}</InputLabel>
+        </Grid>
+
+        <Grid item xs={12}>
+          {question && (
+              <InputLabel
+              style={{
+                paddingLeft: 5,
+                paddingRight: 5,
+                whiteSpace: 'normal',
+                wordWrap: 'break-word'
+              }}
+            >{question}</InputLabel>
+          )}
+        </Grid>
+        <Grid item xs={12}>
+          {html && <div className={styles.node}>{html}</div>}
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel>回答{number}</InputLabel>
+            <Select
+              value={value}
+              onChange={(event) => handleChange(event)}
+              label="answer"
+            >
+              <MenuItem value="">
+                <em>未選択</em>
+              </MenuItem>
+              {values?.map((item, key) => (
+                <MenuItem key={key} value={item}>
+                  {item}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 
