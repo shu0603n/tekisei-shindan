@@ -17,6 +17,7 @@ import { ReactNode, useState } from "react";
 import AnswerSelect from "./components/AnswerSelect";
 import AnswerBox from "./components/AnswerBox";
 import MenuIcon from '@mui/icons-material/Menu';
+import Link from "next/link";
 
 
 export default function Home() {
@@ -61,6 +62,10 @@ export default function Home() {
   };
   const handleChangeAnswer10 = (item: string) => {
     setAnswer10(item);
+  };
+  const query = {
+    id: 1,
+    name: "yakkun",
   };
 
   type AnswerType = {
@@ -499,15 +504,15 @@ export default function Home() {
   return (
     <>
       <AppBar position="static">
-          <Toolbar variant="dense">
-            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" component="div">
-              エンジニア適正テスト
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <Toolbar variant="dense">
+          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" color="inherit" component="div">
+            エンジニア適正テスト
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -532,40 +537,43 @@ export default function Home() {
             </Grid>
             <Grid item xs={12}>
               <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                <Button
-                  onClick={() => {
-                    const requestData = {
-                      // ここにPOSTで送りたいデータを追加
-                      name: name,
-                      answers: [
-                        answer1,
-                        answer2,
-                        answer3,
-                        answer4,
-                        answer5,
-                        answer6,
-                        answer7,
-                        answer8,
-                        answer9,
-                        answer10,
-                      ],
-                      // 他のデータも必要に応じて追加
-                    };
-
-                    fetch("/api/send-mail", {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                      body: JSON.stringify(requestData),
-                    })
-                      .then((response) => response.json())
-                      .then((data) => alert("テスト結果を送信しました。"))
-                      .catch((error) => console.error("Error:", error));
-                  }}
-                >
-                  回答する
-                </Button>
+                <Link href={{ pathname: "result", query: query }} as="result">
+                  <Button
+                    onClick={() => {
+                      const requestData = {
+                        // ここにPOSTで送りたいデータを追加
+                        name: name,
+                        answers: [
+                          answer1,
+                          answer2,
+                          answer3,
+                          answer4,
+                          answer5,
+                          answer6,
+                          answer7,
+                          answer8,
+                          answer9,
+                          answer10,
+                        ],
+                        // 他のデータも必要に応じて追加
+                      };
+ 
+                      fetch("/api/send-mail", {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(requestData),
+                      })
+                        .then((response) => response.json())
+                        .then((data) => console.log(data))
+                        .catch((error) => console.error("Error:", error));
+                    }}
+                    
+                  >
+                    回答する
+                  </Button>
+                </Link>
               </FormControl>
             </Grid>
           </>
