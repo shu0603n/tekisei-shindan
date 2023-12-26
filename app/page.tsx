@@ -210,11 +210,11 @@ export default function Home() {
           </Grid>
           <Grid item xs={6}>
             <InputLabel>C</InputLabel>
-            <AnswerBox answer="法則性はない" />
+            <AnswerBox answer="交点があるとき、黒丸が移動している" />
           </Grid>
           <Grid item xs={6}>
             <InputLabel>D</InputLabel>
-            <AnswerBox answer="線が1つずつ増えている" />
+            <AnswerBox answer="法則性はない" />
           </Grid>
         </Grid>
       ),
