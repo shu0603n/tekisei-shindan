@@ -8,8 +8,8 @@ import {
   MenuItem,
   SelectChangeEvent,
   Grid,
+  Card,
 } from "@mui/material";
-import styles from "./style.module.css";
 
 interface AnswerSelectProps {
   number: number;
@@ -36,46 +36,48 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
   };
   return (
     <Grid item xs={12}>
-      <Grid container spacing={3} justifyContent="center" alignItems="center">
-        <Grid item xs={12}>
-          <InputLabel>問題{number}</InputLabel>
-        </Grid>
+      <Card color="primary">
+        <Grid container spacing={3} justifyContent="center" alignItems="center">
+          <Grid item xs={11}>
+            <InputLabel>問題{number}</InputLabel>
+          </Grid>
 
-        <Grid item xs={12}>
-          {question && (
+          <Grid item xs={11}>
+            {question && (
               <InputLabel
-              style={{
-                paddingLeft: 5,
-                paddingRight: 5,
-                whiteSpace: 'normal',
-                wordWrap: 'break-word'
-              }}
-            >{question}</InputLabel>
-          )}
-        </Grid>
-        <Grid item xs={12}>
-          {html && <div className={styles.node}>{html}</div>}
-        </Grid>
-        <Grid item xs={12}>
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel>回答{number}</InputLabel>
-            <Select
-              value={value}
-              onChange={(event) => handleChange(event)}
-              label="answer"
-            >
-              <MenuItem value="">
-                <em>未選択</em>
-              </MenuItem>
-              {values?.map((item, key) => (
-                <MenuItem key={key} value={item}>
-                  {item}
+                style={{
+                  whiteSpace: "normal",
+                }}
+              >
+                {question}
+              </InputLabel>
+            )}
+          </Grid>
+          <Grid item xs={11}>
+            {html && html}
+          </Grid>
+          <Grid item xs={11}>
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 200 }}>
+              <InputLabel>回答{number}</InputLabel>
+              <Select
+                value={value}
+                onChange={(event) => handleChange(event)}
+                label="answer"
+                variant="filled"
+              >
+                <MenuItem value="">
+                  <em>未選択</em>
                 </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+                {values?.map((item, key) => (
+                  <MenuItem key={key} value={item}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
         </Grid>
-      </Grid>
+      </Card>
     </Grid>
   );
 };

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./style.module.css";
 import {
   Button,
   FormControl,
@@ -12,15 +11,17 @@ import {
   Toolbar,
   Typography,
   IconButton,
+  Card,
 } from "@mui/material";
 import { ReactNode, useState } from "react";
 import AnswerSelect from "./components/AnswerSelect";
 import AnswerBox from "./components/AnswerBox";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
-
+import styles from "./style.module.css";
 
 export default function Home() {
+  const [start, setStart] = useState<boolean>(false);
   const [name, setName] = useState<string>();
   const [answer1, setAnswer1] = useState<string>();
   const [answer2, setAnswer2] = useState<string>();
@@ -63,6 +64,38 @@ export default function Home() {
   const handleChangeAnswer10 = (item: string) => {
     setAnswer10(item);
   };
+
+  const handleClick = () => {
+    const requestData = {
+      // ここにPOSTで送りたいデータを追加
+      name: name,
+      answers: [
+        answer1,
+        answer2,
+        answer3,
+        answer4,
+        answer5,
+        answer6,
+        answer7,
+        answer8,
+        answer9,
+        answer10,
+      ],
+      // 他のデータも必要に応じて追加
+    };
+
+    fetch("/api/send-mail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestData),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error:", error));
+  };
+
   const query = {
     id: 1,
     name: "yakkun",
@@ -95,7 +128,7 @@ export default function Home() {
               height={600}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <Image
               src="/images/d11.png"
@@ -104,7 +137,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <Image
               src="/images/d12.png"
@@ -113,7 +146,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <Image
               src="/images/d13.png"
@@ -122,7 +155,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <Image
               src="/images/d14.png"
@@ -150,7 +183,7 @@ export default function Home() {
               height={600}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <Image
               src="/images/d21.png"
@@ -159,7 +192,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <Image
               src="/images/d22.png"
@@ -168,7 +201,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <Image
               src="/images/d23.png"
@@ -177,7 +210,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <Image
               src="/images/d24.png"
@@ -205,19 +238,19 @@ export default function Home() {
               height={600}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="線の交差が1つずつ増えている" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="線が1つずつ増えている" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="交点があるとき、黒丸が移動している" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="法則性はない" />
           </Grid>
@@ -240,19 +273,19 @@ export default function Home() {
               height={600}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="左から順に丸が時計回りに移動している" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="ひし形がランダムに移動している" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="左から順にひし形が時計回りに移動している" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="法則性はない" />
           </Grid>
@@ -276,19 +309,19 @@ export default function Home() {
               height={600}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="A" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="B" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="C" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="D" />
           </Grid>
@@ -312,19 +345,19 @@ export default function Home() {
               height={600}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="A" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="B" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="C" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="D" />
           </Grid>
@@ -348,7 +381,7 @@ export default function Home() {
               height={600}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <Image
               src="/images/d71.png"
@@ -357,7 +390,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <Image
               src="/images/d72.png"
@@ -366,7 +399,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <Image
               src="/images/d73.png"
@@ -375,7 +408,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <Image
               src="/images/d74.png"
@@ -404,7 +437,7 @@ export default function Home() {
               height={600}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <Image
               src="/images/d81.png"
@@ -413,7 +446,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <Image
               src="/images/d82.png"
@@ -422,7 +455,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <Image
               src="/images/d83.png"
@@ -431,7 +464,7 @@ export default function Home() {
               height={100}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <Image
               src="/images/d84.png"
@@ -452,19 +485,19 @@ export default function Home() {
         "以下の文章を読んでください。 プログラミング言語にて、Rubyは動的言語の一種で、Javaは静的言語の一種だ。後者には実行時に事前にコンパイルが必要だが前者は違う。コンパイルは実行時に必要はないのだ。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 コンパイルが必要とされていないものは（　　　）である。",
       html: (
         <Grid container spacing={3}>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="Ruby" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="プログラミング言語" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="実行" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="Java" />
           </Grid>
@@ -480,19 +513,19 @@ export default function Home() {
         "以下の文章を読んでください。 AIの原理上の制約は、データから学習することです。それ以外に知識を取り入れる方法はありません。したがって、データに潜むあらゆる不正確性がそのまま結果に反映されます。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 AIが知識を得るには（　　　）が必要だ。",
       html: (
         <Grid container spacing={3}>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="不確実性" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>B</InputLabel>
             <AnswerBox answer="データ" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="制約" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} lg={3}>
             <InputLabel>D</InputLabel>
             <AnswerBox answer="結果" />
           </Grid>
@@ -505,7 +538,12 @@ export default function Home() {
     <>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" component="div">
@@ -513,73 +551,84 @@ export default function Home() {
           </Typography>
         </Toolbar>
       </AppBar>
-      //<main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <TextField id="name" label="氏名" variant="outlined" value={name} onChange={(event)=>{setName(event.target.value)}} />
+      <main className={styles.main}>
+        <Grid container spacing={3} justifyContent="center" alignItems="center">
+          <Grid item xs={8}>
+            <Grid container spacing={3}>
+              {!start && (
+                <>
+                  <Grid item xs={12}>
+                    <InputLabel>
+                      本サイトは約5分~10分の簡単な診断です。
+                    </InputLabel>
+                    <InputLabel>
+                      適性診断の結果は、採用の基準とは関係ありませんのでご安心ください。
+                    </InputLabel>
+                    <InputLabel></InputLabel>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      id="name"
+                      label="氏名"
+                      variant="outlined"
+                      value={name}
+                      onChange={(event) => {
+                        setName(event.target.value);
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Button
+                      variant="outlined"
+                      onClick={() => {
+                        const flg: boolean = name ? true : false;
+                        setStart(flg);
+                      }}
+                    >
+                      開始
+                    </Button>
+                  </Grid>
+                </>
+              )}
+
+              {start && (
+                <>
+                  <Grid item xs={12}>
+                    <Grid container spacing={3}>
+                      {data.map((item, idx) => (
+                        <AnswerSelect
+                          key={idx + 1}
+                          number={idx + 1}
+                          values={item.values}
+                          onChange={item.onChange}
+                          answer={item.answer}
+                          question={item.question}
+                          html={item.html}
+                        />
+                      ))}
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={12} alignItems="right">
+                    <FormControl
+                      variant="standard"
+                      sx={{ m: 1, minWidth: 120 }}
+                    >
+                      <Link
+                        href={{ pathname: "result", query: query }}
+                        as="result"
+                      >
+                        <Button variant="contained" onClick={handleClick}>
+                          回答する
+                        </Button>
+                      </Link>
+                    </FormControl>
+                  </Grid>
+                </>
+              )}
+            </Grid>
           </Grid>
-          {(name?.length?? 0)>1 && 
-          <>
-            <Grid item xs={12}>
-              <Grid container spacing={3}>
-                {data.map((item, idx) => (
-                  <AnswerSelect
-                    key={idx + 1}
-                    number={idx + 1}
-                    values={item.values}
-                    onChange={item.onChange}
-                    answer={item.answer}
-                    question={item.question}
-                    html={item.html}
-                  />
-                ))}
-              </Grid>
-            </Grid>
-            <Grid item xs={12}>
-              <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                <Link href={{ pathname: "result", query: query }} as="result">
-                  <Button
-                    onClick={() => {
-                      const requestData = {
-                        // ここにPOSTで送りたいデータを追加
-                        name: name,
-                        answers: [
-                          answer1,
-                          answer2,
-                          answer3,
-                          answer4,
-                          answer5,
-                          answer6,
-                          answer7,
-                          answer8,
-                          answer9,
-                          answer10,
-                        ],
-                        // 他のデータも必要に応じて追加
-                      };
- 
-                      fetch("/api/send-mail", {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(requestData),
-                      })
-                        .then((response) => response.json())
-                        .then((data) => console.log(data))
-                        .catch((error) => console.error("Error:", error));
-                    }}
-                    
-                  >
-                    回答する
-                  </Button>
-                </Link>
-              </FormControl>
-            </Grid>
-          </>
-          }
         </Grid>
-      //</main>
+      </main>
     </>
   );
 }
