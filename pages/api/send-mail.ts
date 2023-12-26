@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   try {
     const name = request.body.name;
-    const answers = request.body.description;
+    const answers = request.body.answers;
 
     const sleep = (ms: number): Promise<void> =>
       new Promise((resolve) => setTimeout(resolve, ms));
