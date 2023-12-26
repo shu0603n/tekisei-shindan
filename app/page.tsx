@@ -91,8 +91,8 @@ export default function Home() {
             <Image
               src="/images/d1.png"
               alt="your_image_alt"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </Grid>
           <Grid item xs={6}>
@@ -146,8 +146,8 @@ export default function Home() {
             <Image
               src="/images/d2.png"
               alt="your_image_alt"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </Grid>
           <Grid item xs={6}>
@@ -201,8 +201,8 @@ export default function Home() {
             <Image
               src="/images/d3.png"
               alt="your_image_alt"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </Grid>
           <Grid item xs={6}>
@@ -236,8 +236,8 @@ export default function Home() {
             <Image
               src="/images/d4.png"
               alt="your_image_alt"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </Grid>
           <Grid item xs={6}>
@@ -272,8 +272,8 @@ export default function Home() {
             <Image
               src="/images/d5.png"
               alt="your_image_alt"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </Grid>
           <Grid item xs={6}>
@@ -308,8 +308,8 @@ export default function Home() {
             <Image
               src="/images/d6.png"
               alt="your_image_alt"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </Grid>
           <Grid item xs={6}>
@@ -344,8 +344,8 @@ export default function Home() {
             <Image
               src="/images/d7.png"
               alt="your_image_alt"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </Grid>
           <Grid item xs={6}>
@@ -400,8 +400,8 @@ export default function Home() {
             <Image
               src="/images/d8.png"
               alt="your_image_alt"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </Grid>
           <Grid item xs={6}>
