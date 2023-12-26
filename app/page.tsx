@@ -245,7 +245,7 @@ export default function Home() {
           </Grid>
           <Grid item xs={6}>
             <InputLabel>C</InputLabel>
-            <AnswerBox answer="ひし形がランダムに移動している" />
+            <AnswerBox answer="左から順にひし形が時計回りに移動している" />
           </Grid>
           <Grid item xs={6}>
             <InputLabel>D</InputLabel>
