@@ -558,10 +558,13 @@ export default function Home() {
               {!start && (
                 <>
                   <Grid item xs={12}>
-                    <InputLabel>
+                    <InputLabel
+                      style={{
+                        whiteSpace: "normal",
+                      }}
+                    >
                       本サイトは約5分~10分の簡単な診断です。
-                    </InputLabel>
-                    <InputLabel>
+                      <br />
                       適性診断の結果は、採用の基準とは関係ありませんのでご安心ください。
                     </InputLabel>
                     <InputLabel></InputLabel>
