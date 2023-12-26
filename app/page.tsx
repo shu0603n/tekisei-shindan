@@ -1,22 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import AnswerSelectProps from "./components/AnswerSelect";
 import styles from "./style.module.css";
 import {
   Button,
   FormControl,
   Grid,
   InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
+  TextField,
 } from "@mui/material";
 import { ReactNode, useEffect, useState } from "react";
 import AnswerSelect from "./components/AnswerSelect";
 import AnswerBox from "./components/AnswerBox";
 
 export default function Home() {
+  const [name, setName] = useState<string>();
   const [answer1, setAnswer1] = useState<string>();
   const [answer2, setAnswer2] = useState<string>();
   const [answer3, setAnswer3] = useState<string>();
@@ -74,17 +72,19 @@ export default function Home() {
       number: 1,
       values: VALUES,
       onChange: handleChangeAnswer1,
-      answer: "A",
-      question: "この問題を解きなさい",
+      answer: "C",
+      question: "この問題を解きなさい。",
       html: (
-        <>
-          <Image
-            src="/images/d1.png"
-            alt="your_image_alt"
-            width={400}
-            height={400}
-          />
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Image
+              src="/images/d1.png"
+              alt="your_image_alt"
+              width={400}
+              height={400}
+            />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <Image
               src="/images/d11.png"
@@ -99,8 +99,8 @@ export default function Home() {
               width={100}
               height={100}
             />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <Image
               src="/images/d13.png"
@@ -115,25 +115,27 @@ export default function Home() {
               width={100}
               height={100}
             />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
       number: 2,
       values: VALUES,
       onChange: handleChangeAnswer2,
-      answer: "A",
-      question: "この問題を解きなさい",
+      answer: "B",
+      question: "この問題を解きなさい。",
       html: (
-        <>
-          <Image
-            src="/images/d2.png"
-            alt="your_image_alt"
-            width={400}
-            height={400}
-          />
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Image
+              src="/images/d2.png"
+              alt="your_image_alt"
+              width={400}
+              height={400}
+            />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <Image
               src="/images/d21.png"
@@ -148,8 +150,8 @@ export default function Home() {
               width={100}
               height={100}
             />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <Image
               src="/images/d23.png"
@@ -164,39 +166,41 @@ export default function Home() {
               width={100}
               height={100}
             />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
       number: 3,
       values: VALUES,
       onChange: handleChangeAnswer3,
-      answer: "A",
-      question: "この問題を解きなさい",
+      answer: "B",
+      question: "この問題を解きなさい。",
       html: (
-        <>
-          <Image
-            src="/images/d3.png"
-            alt="your_image_alt"
-            width={400}
-            height={400}
-          />
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Image
+              src="/images/d3.png"
+              alt="your_image_alt"
+              width={400}
+              height={400}
+            />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="線の交差が1つずつ増えている" />
 
             <InputLabel>B</InputLabel>
             <AnswerBox answer="線が1つずつ増えている" />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="法則性はない" />
 
             <InputLabel>D</InputLabel>
             <AnswerBox answer="線が1つずつ増えている" />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
@@ -204,94 +208,100 @@ export default function Home() {
       values: VALUES,
       onChange: handleChangeAnswer4,
       answer: "A",
-      question: "この問題を解きなさい",
+      question: "この問題を解きなさい。",
       html: (
-        <>
-          <Image
-            src="/images/d4.png"
-            alt="your_image_alt"
-            width={400}
-            height={400}
-          />
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Image
+              src="/images/d4.png"
+              alt="your_image_alt"
+              width={400}
+              height={400}
+            />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="左から順に丸が時計回りに移動している" />
 
             <InputLabel>B</InputLabel>
             <AnswerBox answer="ひし形がランダムに移動している" />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="ひし形がランダムに移動している" />
 
             <InputLabel>D</InputLabel>
             <AnswerBox answer="法則性はない" />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
       number: 5,
       values: VALUES,
       onChange: handleChangeAnswer5,
-      answer: "A",
+      answer: "D",
       question:
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
       html: (
-        <>
-          <Image
-            src="/images/d5.png"
-            alt="your_image_alt"
-            width={400}
-            height={400}
-          />
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Image
+              src="/images/d5.png"
+              alt="your_image_alt"
+              width={400}
+              height={400}
+            />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="A" />
 
             <InputLabel>B</InputLabel>
             <AnswerBox answer="B" />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="C" />
 
             <InputLabel>D</InputLabel>
             <AnswerBox answer="D" />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
       number: 6,
       values: VALUES,
       onChange: handleChangeAnswer6,
-      answer: "A",
+      answer: "D",
       question:
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
       html: (
-        <>
-          <Image
-            src="/images/d6.png"
-            alt="your_image_alt"
-            width={400}
-            height={400}
-          />
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Image
+              src="/images/d6.png"
+              alt="your_image_alt"
+              width={400}
+              height={400}
+            />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="A" />
 
             <InputLabel>B</InputLabel>
             <AnswerBox answer="B" />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="C" />
 
             <InputLabel>D</InputLabel>
             <AnswerBox answer="D" />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
@@ -302,14 +312,16 @@ export default function Home() {
       question:
         "以下の図を見て、?に入る選択肢を選びなさい。 図形は、矢印の先の命令に沿って内容が変換されます。 命令は、変換結果をもとに推測してください。",
       html: (
-        <>
-          <Image
-            src="/images/d7.png"
-            alt="your_image_alt"
-            width={400}
-            height={400}
-          />
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Image
+              src="/images/d7.png"
+              alt="your_image_alt"
+              width={400}
+              height={400}
+            />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <Image
               src="/images/d71.png"
@@ -324,8 +336,8 @@ export default function Home() {
               width={100}
               height={100}
             />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <Image
               src="/images/d73.png"
@@ -340,26 +352,28 @@ export default function Home() {
               width={100}
               height={100}
             />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
       number: 8,
       values: VALUES,
       onChange: handleChangeAnswer8,
-      answer: "A",
+      answer: "D",
       question:
         "以下の図を見て、?に入る選択肢を選びなさい。 図形は、矢印の先の命令に沿って内容が変換されます。 命令は、変換結果をもとに推測してください。",
       html: (
-        <>
-          <Image
-            src="/images/d8.png"
-            alt="your_image_alt"
-            width={400}
-            height={400}
-          />
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Image
+              src="/images/d8.png"
+              alt="your_image_alt"
+              width={400}
+              height={400}
+            />
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <Image
               src="/images/d81.png"
@@ -374,8 +388,8 @@ export default function Home() {
               width={100}
               height={100}
             />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <Image
               src="/images/d83.png"
@@ -390,8 +404,8 @@ export default function Home() {
               width={100}
               height={100}
             />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
@@ -402,48 +416,48 @@ export default function Home() {
       question:
         "以下の文章を読んでください。 プログラミング言語にて、Rubyは動的言語の一種で、Javaは静的言語の一種だ。後者には実行時に事前にコンパイルが必要だが前者は違う。コンパイルは実行時に必要はないのだ。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 コンパイルが必要とされていないものは（　　　）である。",
       html: (
-        <>
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="Ruby" />
 
             <InputLabel>B</InputLabel>
             <AnswerBox answer="プログラミング言語" />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="実行" />
 
             <InputLabel>D</InputLabel>
             <AnswerBox answer="Java" />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
     {
       number: 10,
       values: VALUES,
       onChange: handleChangeAnswer10,
-      answer: "A",
+      answer: "B",
       question:
         "以下の文章を読んでください。 AIの原理上の制約は、データから学習することです。それ以外に知識を取り入れる方法はありません。したがって、データに潜むあらゆる不正確性がそのまま結果に反映されます。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 AIが知識を得るには（　　　）が必要だ。",
       html: (
-        <>
-          <div className={styles.child}>
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
             <InputLabel>A</InputLabel>
             <AnswerBox answer="不確実性" />
 
             <InputLabel>B</InputLabel>
             <AnswerBox answer="データ" />
-          </div>
-          <div className={styles.child}>
+          </Grid>
+          <Grid item xs={6}>
             <InputLabel>C</InputLabel>
             <AnswerBox answer="制約" />
 
             <InputLabel>D</InputLabel>
             <AnswerBox answer="結果" />
-          </div>
-        </>
+          </Grid>
+        </Grid>
       ),
     },
   ];
@@ -452,7 +466,10 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <div className={styles.home}>
+          <TextField id="name" label="氏名" variant="outlined" value={name} onChange={(event)=>{setName(event.target.value)}} />
+        </Grid>
+        <Grid item xs={12}>
+          <Grid container spacing={3}>
             {data.map((item, idx) => (
               <AnswerSelect
                 key={idx + 1}
@@ -464,56 +481,45 @@ export default function Home() {
                 html={item.html}
               />
             ))}
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <Button
+              onClick={() => {
+                const requestData = {
+                  // ここにPOSTで送りたいデータを追加
+                  name: name,
+                  answer: [
+                    answer1,
+                    answer2,
+                    answer3,
+                    answer4,
+                    answer5,
+                    answer6,
+                    answer7,
+                    answer8,
+                    answer9,
+                    answer10,
+                  ],
+                  // 他のデータも必要に応じて追加
+                };
 
-            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-              <Button
-                onClick={() => {
-                  const requestData = {
-                    // ここにPOSTで送りたいデータを追加
-                    name: "test",
-                    answer: [
-                      answer1,
-                      answer2,
-                      answer3,
-                      answer4,
-                      answer5,
-                      answer6,
-                      answer7,
-                      answer8,
-                      answer9,
-                      answer10,
-                    ],
-                    // 他のデータも必要に応じて追加
-                  };
-
-                  fetch("/api/send-mail", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(requestData),
-                  })
-                    .then((response) => response.json())
-                    .then((data) => console.log(data))
-                    .catch((error) => console.error("Error:", error));
-                  alert({
-                    "1": answer1,
-                    "2": answer2,
-                    "3": answer3,
-                    "4": answer4,
-                    "5": answer5,
-                    "6": answer6,
-                    "7": answer7,
-                    "8": answer8,
-                    "9": answer9,
-                    "10": answer10,
-                  });
-                }}
-              >
-                回答する
-              </Button>
-            </FormControl>
-          </div>
+                fetch("/api/send-mail", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(requestData),
+                })
+                  .then((response) => response.json())
+                  .then((data) => console.log(data))
+                  .catch((error) => console.error("Error:", error));
+              }}
+            >
+              回答する
+            </Button>
+          </FormControl>
         </Grid>
       </Grid>
     </main>
