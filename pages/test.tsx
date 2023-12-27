@@ -210,7 +210,6 @@ export default function Home() {
       answer: "A",
       question:
         "以下の文章を読んでください。 プログラミング言語にて、Rubyは動的言語の一種で、Javaは静的言語の一種だ。後者には実行時に事前にコンパイルが必要だが前者は違う。コンパイルは実行時に必要はないのだ。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 コンパイルが必要とされていないものは（　　　）である。",
-      mainImage:'/images/d8.png',
       child:[
         {id:'A',type:'string',choice:'Ruby'},
         {id:'B',type:'string',choice:'プログラミング言語'},
@@ -224,7 +223,6 @@ export default function Home() {
       answer: "B",
       question:
         "以下の文章を読んでください。 AIの原理上の制約は、データから学習することです。それ以外に知識を取り入れる方法はありません。したがって、データに潜むあらゆる不正確性がそのまま結果に反映されます。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 AIが知識を得るには（　　　）が必要だ。",
-      mainImage:'/images/d8.png',
       child:[
         {id:'A',type:'string',choice:'不確実性'},
         {id:'B',type:'string',choice:'データ'},
