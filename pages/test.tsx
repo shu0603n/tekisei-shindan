@@ -266,7 +266,7 @@ export default function Home() {
     <PersistentDrawerLeft>
       <main className={styles.main}>
         <Grid container spacing={3} justifyContent="center" alignItems="center">
-          <Grid item xs={11} md={8}>
+          <Grid item xs={11} lg={8}>
             <Grid container spacing={3}>
               {!start && (
                 <>
