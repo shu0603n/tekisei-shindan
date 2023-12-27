@@ -5,8 +5,10 @@ import {
   Grid,
   InputLabel,
   Box,
+  Button
 } from "@mui/material";
 import AnswerBox from "../components/AnswerBox";
+import styles from "./style.module.css";
 import '../app/globals.css'
 
 type childType = {
@@ -49,23 +51,27 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
         if(item.type === 'image'){
           return (
             <Grid item xs={6} lg={3} key={item.id}>
-              <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}} onClick={()=>{handleClick(item.id)}}>
+              <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
                 <InputLabel>{item.id}</InputLabel>
-                <Image
-                  src={item.choice}
-                  alt={item.id}
-                  width={100}
-                  height={100}
-                />
+                <Button variant="contained" onClick={()=>{handleClick(item.id)}}>
+                  <Image
+                    src={item.choice}
+                    alt={item.id}
+                    width={100}
+                    height={100}
+                  />
+                </Button>
               </Box>
             </Grid>
             )
         } else {
           return (
             <Grid item xs={6} lg={3} key={item.id}>
-              <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}} onClick={()=>{handleClick(item.id)}}>
+              <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
                 <InputLabel>{item.id}</InputLabel>
-                <AnswerBox answer={item.choice} />
+                <Button variant="outlined" sx={{fontWeight:700, width:'100%', height :100, display: 'flex',flexDirection: 'column',alignItems: 'center'}} onClick={()=>{handleClick(item.id)}}>
+                  {item.choice}
+                </Button>
               </Box>
             </Grid>
             )
