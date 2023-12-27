@@ -16,7 +16,7 @@ import {
 import { useRouter } from "next/router";
 import styles from "./style.module.css";
 import "../app/globals.css";
-import MenuBar from "@/components/MenuBar";
+import PersistentDrawerLeft from "@/components/PersistentDrawerLeft";
 
 export default function Result() {
   const router = useRouter();
@@ -41,8 +41,7 @@ export default function Result() {
     point === 100 ? "S" : point >= 80 ? "A" : point >= 60 ? "B" : "C";
 
   return (
-    <>
-      <MenuBar />
+    <PersistentDrawerLeft>
       <main className={styles.main}>
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           <Grid item xs={10}>
@@ -97,6 +96,6 @@ export default function Result() {
           </Grid>
         </Grid>
       </main>
-    </>
+    </PersistentDrawerLeft>
   );
 }

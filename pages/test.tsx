@@ -1,23 +1,13 @@
 "use client";
 
-import {
-  Button,
-  Grid,
-  InputLabel,
-  TextField,
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Button, Grid, InputLabel, TextField } from "@mui/material";
 import { useState } from "react";
 import AnswerSelect, { AnswerSelectProps } from "../components/AnswerSelect";
-import MenuIcon from "@mui/icons-material/Menu";
-import Link from "next/link";
 import styles from "./style.module.css";
 import "../app/globals.css";
 import AlertDialog from "@/components/AlertDialog";
 import { useRouter } from "next/router";
+import PersistentDrawerLeft from "@/components/PersistentDrawerLeft";
 
 export default function Home() {
   const router = useRouter();
@@ -273,22 +263,7 @@ export default function Home() {
   ];
 
   return (
-    <>
-      <AppBar position="static">
-        <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" component="div">
-            エンジニア適正診断
-          </Typography>
-        </Toolbar>
-      </AppBar>
+    <PersistentDrawerLeft>
       <main className={styles.main}>
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           <Grid item xs={10}>
@@ -380,6 +355,6 @@ export default function Home() {
           </Grid>
         </Grid>
       </main>
-    </>
+    </PersistentDrawerLeft>
   );
 }

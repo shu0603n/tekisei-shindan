@@ -3,12 +3,11 @@
 import { Button, Grid } from "@mui/material";
 import Link from "next/link";
 import styles from "./style.module.css";
-import MenuBar from "@/components/MenuBar";
+import PersistentDrawerLeft from "@/components/PersistentDrawerLeft";
 
 export default function Home() {
   return (
-    <>
-      <MenuBar />
+    <PersistentDrawerLeft>
       <main className={styles.main}>
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           <Grid item xs={8}>
@@ -20,6 +19,6 @@ export default function Home() {
           </Grid>
         </Grid>
       </main>
-    </>
+    </PersistentDrawerLeft>
   );
 }
