@@ -1,6 +1,6 @@
 // AnswerSelect.tsx
 
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import {
   FormControl,
   InputLabel,
@@ -12,23 +12,29 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+import QuestionBox from "./QuestionBox";
 
-interface AnswerSelectProps {
+type childType = {
+  id: string;
+  type: 'image' | 'string';
+  choice: string;
+}
+export type AnswerSelectProps =  {
   number: number;
-  values: string[];
   onChange: (item: string) => void;
   answer: string;
   question?: string;
-  html?: ReactNode;
+  mainImage?: string;
+  child: Array<childType>;
 }
 
 const AnswerSelect: React.FC<AnswerSelectProps> = ({
   number,
-  values,
   onChange,
   answer,
   question,
-  html,
+  mainImage,
+  child
 }) => {
   const [value, setValue] = useState<string>();
 
@@ -59,9 +65,12 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
               </Box>
             )}
           </Grid>
-          <Grid item xs={11}>
-            {html && html}
-          </Grid>
+          {child?.length !== 0 && 
+            <Grid item xs={11}>
+              <QuestionBox mainImage={mainImage} child={child}/>
+            </Grid>
+          }
+          
           <Grid item xs={11}>
             <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
               <FormControl variant="standard" fullWidth>
@@ -75,9 +84,9 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
                   <MenuItem value="">
                     <em>未選択</em>
                   </MenuItem>
-                  {values?.map((item, key) => (
-                    <MenuItem key={`item-${key}`} value={item}>
-                      {item}
+                  {child?.map((item, key) => (
+                    <MenuItem key={`item-${key}`} value={item.id}>
+                      {item.id}
                     </MenuItem>
                   ))}
                 </Select>
