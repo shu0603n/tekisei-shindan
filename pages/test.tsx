@@ -309,7 +309,6 @@ export default function Home() {
                         <AnswerSelect
                           key={idx + 1}
                           number={idx + 1}
-                          values={item.values}
                           onChange={item.onChange}
                           answer={item.answer}
                           question={item.question}
