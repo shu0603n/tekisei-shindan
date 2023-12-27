@@ -10,7 +10,7 @@ export default function Home() {
     <PersistentDrawerLeft>
       <main className={styles.main}>
         <Grid container spacing={3} justifyContent="center" alignItems="center">
-          <Grid item xs={8}>
+          <Grid item xs={11} md={8}>
             <Link href={{ pathname: "test" }} as="test">
               <Button variant="outlined" sx={{ height: 55 }} fullWidth>
                 診断する
