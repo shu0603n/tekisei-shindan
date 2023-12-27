@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from "next/router";
+import styles from "./style.module.css";
 import '../app/globals.css'
 
 export default function Result() {
@@ -57,9 +58,9 @@ export default function Result() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <main>
-      <Grid container spacing={3} justifyContent="center" alignItems="center">
-          <Grid item xs={8}>
+      <main className={styles.main}>
+        <Grid container spacing={3} justifyContent="center" alignItems="center">
+          <Grid item xs={10}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Typography variant="h6" color="inherit" component="div">
@@ -69,7 +70,7 @@ export default function Result() {
               </Grid>
               <Grid item xs={12}>
                 <TableContainer component={Paper}>
-                  <Table sx={{ maxWidth: 600 }} stickyHeader aria-label="sticky table">
+                  <Table sx={{ maxWidth: 600, margin:'auto'}} stickyHeader aria-label="sticky table">
                     <TableHead>
                       <TableRow>
                         <TableCell key='title' align="left"></TableCell>
