@@ -22,6 +22,7 @@ import '../app/globals.css'
 
 export default function Home() {
   const [start, setStart] = useState<boolean>(false);
+  const [inputError, setInputError] = useState<boolean>(false);
   const [name, setName] = useState<string>();
   const [answer1, setAnswer1] = useState<string>();
   const [answer2, setAnswer2] = useState<string>();
@@ -645,7 +646,7 @@ export default function Home() {
       </AppBar>
       <main className={styles.main}>
         <Grid container spacing={3} justifyContent="center" alignItems="center">
-          <Grid item xs={8}>
+          <Grid item xs={10}>
             <Grid container spacing={3}>
               {!start && (
                 <>
@@ -659,7 +660,6 @@ export default function Home() {
                       <br />
                       適性診断の結果は、採用の基準とは関係ありませんのでご安心ください。
                     </InputLabel>
-                    <InputLabel></InputLabel>
                   </Grid>
                   <Grid item xs={10}>
                     <TextField
@@ -670,6 +670,8 @@ export default function Home() {
                       onChange={(event) => {
                         setName(event.target.value);
                       }}
+                      error={inputError}
+                      helperText={inputError && '入力必須です'}
                       fullWidth 
                     />
                   </Grid>
@@ -678,6 +680,9 @@ export default function Home() {
                       variant="outlined"
                       onClick={() => {
                         const flg: boolean = name ? true : false;
+                        if(!flg){
+                          setInputError(true);
+                        }
                         setStart(flg);
                       }}
                       sx={{ height: 55}}
@@ -692,7 +697,7 @@ export default function Home() {
               {start && (
                 <>
                   <Grid item xs={12}>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={6}>
                       {data.map((item, idx) => (
                         <AnswerSelect
                           key={idx + 1}
