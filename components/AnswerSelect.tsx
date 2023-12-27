@@ -38,9 +38,9 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
 }) => {
   const [value, setValue] = useState<string>();
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setValue(event.target.value);
-    onChange(event.target.value === answer ? "〇" : "×");
+  const handleChange = (item: string) => {
+    setValue(item);
+    onChange(item === answer ? "〇" : "×");
   };
   return (
     <Grid item xs={12}>
@@ -67,7 +67,7 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
           </Grid>
           {child?.length !== 0 && 
             <Grid item xs={11}>
-              <QuestionBox mainImage={mainImage} child={child}/>
+              <QuestionBox mainImage={mainImage} child={child} onClick={handleChange}/>
             </Grid>
           }
           
@@ -77,7 +77,7 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
                 <InputLabel >回答{number}</InputLabel>
                 <Select
                   value={value}
-                  onChange={(event) => handleChange(event)}
+                  onChange={(event) => handleChange(event.target.value)}
                   label="answer"
                   variant="filled"
                 >
