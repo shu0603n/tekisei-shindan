@@ -87,8 +87,8 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
                   variant="outlined"
                   sx={{
                     fontWeight: 700,
-                    width: "100%",
-                    height: 100,
+                    width: item.width ?? "100%",
+                    height: item.height ?? 100,
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
