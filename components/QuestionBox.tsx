@@ -63,7 +63,7 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
                     src={item.choice}
                     alt={item.id}
                     width={100}
-                    height={100}
+                    height={120}
                   />
                 </Button>
               </Box>
