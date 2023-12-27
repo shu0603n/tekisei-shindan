@@ -12,13 +12,8 @@ import {
   Box,
   FormHelperText,
 } from "@mui/material";
-import QuestionBox from "./QuestionBox";
+import QuestionBox, { childType } from "./QuestionBox";
 
-type childType = {
-  id: string;
-  type: "image" | "string";
-  choice: string;
-};
 export type AnswerSelectProps = {
   number: number;
   onChange: (item: string) => void;

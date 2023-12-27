@@ -4,10 +4,12 @@ import Image from "next/image";
 import { Grid, InputLabel, Box, Button } from "@mui/material";
 import "../app/globals.css";
 
-type childType = {
+export type childType = {
   id: string;
   type: "image" | "string";
   choice: string;
+  width?: number;
+  height?: number;
 };
 
 interface QuestionBoxProps {
@@ -62,8 +64,8 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
                   <Image
                     src={item.choice}
                     alt={item.id}
-                    width={100}
-                    height={120}
+                    width={item.width ?? 100}
+                    height={item.height ?? 100}
                   />
                 </Button>
               </Box>

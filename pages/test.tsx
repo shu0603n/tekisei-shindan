@@ -139,14 +139,25 @@ export default function Home() {
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       mainImage: "/images/d3.png",
       child: [
-        { id: "A", type: "string", choice: "線の交差が1つずつ増えている" },
-        { id: "B", type: "string", choice: "線が1つずつ増えている" },
+        {
+          id: "A",
+          type: "string",
+          choice: "線の交差が1つずつ増えている",
+          height: 120,
+        },
+        {
+          id: "B",
+          type: "string",
+          choice: "線が1つずつ増えている",
+          height: 120,
+        },
         {
           id: "C",
           type: "string",
           choice: "交点があるとき、黒丸が移動している",
+          height: 120,
         },
-        { id: "D", type: "string", choice: "法則性はない" },
+        { id: "D", type: "string", choice: "法則性はない", height: 120 },
       ],
     },
     {
@@ -160,14 +171,21 @@ export default function Home() {
           id: "A",
           type: "string",
           choice: "左から順に丸が時計回りに移動している",
+          height: 120,
         },
-        { id: "B", type: "string", choice: "ひし形がランダムに移動している" },
+        {
+          id: "B",
+          type: "string",
+          choice: "ひし形がランダムに移動している",
+          height: 120,
+        },
         {
           id: "C",
           type: "string",
           choice: "左から順にひし形が時計回りに移動している",
+          height: 120,
         },
-        { id: "D", type: "string", choice: "法則性はない" },
+        { id: "D", type: "string", choice: "法則性はない", height: 120 },
       ],
     },
     {
