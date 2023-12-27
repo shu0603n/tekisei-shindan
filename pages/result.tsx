@@ -13,6 +13,8 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Link,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useRouter } from "next/router";
@@ -100,6 +102,13 @@ export default function Result() {
                     </TableBody>
                   </Table>
                 </TableContainer>
+              </Grid>
+              <Grid item xs={12}>
+                <Link href="test">
+                  <Button variant="outlined" sx={{ height: 55 }} fullWidth>
+                    戻る
+                  </Button>
+                </Link>
               </Grid>
             </Grid>
           </Grid>
