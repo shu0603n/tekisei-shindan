@@ -51,7 +51,6 @@ const AnswerSelect: React.FC<Props> = ({
               問題{number}
             </Typography>
           </Grid>
-
           <Grid item xs={11}>
             {question && (
               <Box
@@ -82,7 +81,6 @@ const AnswerSelect: React.FC<Props> = ({
               />
             </Grid>
           )}
-
           <Grid item xs={11}>
             <Box component="section" sx={{ maxWidth: 600, margin: "auto" }}>
               <FormControl variant="standard" fullWidth>

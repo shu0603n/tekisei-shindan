@@ -2,10 +2,7 @@
 
 import {
   Grid,
-  AppBar,
-  Toolbar,
   Typography,
-  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -16,10 +13,10 @@ import {
   Link,
   Button,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useRouter } from "next/router";
 import styles from "./style.module.css";
 import "../app/globals.css";
+import MenuBar from "@/components/MenuBar";
 
 export default function Result() {
   const router = useRouter();
@@ -45,21 +42,7 @@ export default function Result() {
 
   return (
     <>
-      <AppBar position="static">
-        <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" component="div">
-            エンジニア適正テスト
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <MenuBar />
       <main className={styles.main}>
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           <Grid item xs={10}>
