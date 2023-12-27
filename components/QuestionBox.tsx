@@ -54,7 +54,7 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
               >
                 <InputLabel>{item.id}</InputLabel>
                 <Button
-                  variant="contained"
+                  variant="outlined"
                   onClick={() => {
                     handleClick(item.id);
                   }}
@@ -80,7 +80,7 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
                   alignItems: "center",
                 }}
               >
-                <InputLabel>{item.id}</InputLabel>
+                {item.choice !== item.id && <InputLabel>{item.id}</InputLabel>}
                 <Button
                   variant="outlined"
                   sx={{

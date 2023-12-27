@@ -16,11 +16,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import styles from "./style.module.css";
 import "../app/globals.css";
+import AlertDialog from "@/components/AlertDialog";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   const [start, setStart] = useState<boolean>(false);
   const [inputError, setInputError] = useState<boolean>(false);
   const [name, setName] = useState<string>();
+  const [open, setOpen] = useState<boolean>(false);
   const [answer1, setAnswer1] = useState<string>();
   const [answer2, setAnswer2] = useState<string>();
   const [answer3, setAnswer3] = useState<string>();
@@ -32,36 +36,6 @@ export default function Home() {
   const [answer9, setAnswer9] = useState<string>();
   const [answer10, setAnswer10] = useState<string>();
 
-  const handleChangeAnswer1 = (item: string) => {
-    setAnswer1(item);
-  };
-  const handleChangeAnswer2 = (item: string) => {
-    setAnswer2(item);
-  };
-  const handleChangeAnswer3 = (item: string) => {
-    setAnswer3(item);
-  };
-  const handleChangeAnswer4 = (item: string) => {
-    setAnswer4(item);
-  };
-  const handleChangeAnswer5 = (item: string) => {
-    setAnswer5(item);
-  };
-  const handleChangeAnswer6 = (item: string) => {
-    setAnswer6(item);
-  };
-  const handleChangeAnswer7 = (item: string) => {
-    setAnswer7(item);
-  };
-  const handleChangeAnswer8 = (item: string) => {
-    setAnswer8(item);
-  };
-  const handleChangeAnswer9 = (item: string) => {
-    setAnswer9(item);
-  };
-  const handleChangeAnswer10 = (item: string) => {
-    setAnswer10(item);
-  };
   const getParameter = () => {
     return {
       name: name,
@@ -79,6 +53,7 @@ export default function Home() {
   };
 
   const handleClick = () => {
+    setInputError(true);
     const requestData = {
       name: name,
       answers: [
@@ -95,6 +70,29 @@ export default function Home() {
       ],
     };
 
+    if (!open) {
+      console.log(requestData.answers);
+      const selectedNumber = requestData.answers.filter((item) => item && item);
+
+      if (selectedNumber.length === requestData.answers.length) {
+        apiRequest(requestData);
+        router.push({
+          pathname: "/result",
+          query: getParameter(),
+        });
+      } else {
+        setOpen(true);
+      }
+    } else {
+      apiRequest(requestData);
+      router.push({
+        pathname: "/result",
+        query: getParameter(),
+      });
+    }
+  };
+
+  const apiRequest = (requestData: any) => {
     fetch("/api/send-mail", {
       method: "POST",
       headers: {
@@ -110,7 +108,7 @@ export default function Home() {
   const data: Array<AnswerSelectProps> = [
     {
       number: 1,
-      onChange: handleChangeAnswer1,
+      onChange: setAnswer1,
       answer: "C",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       mainImage: "/images/d1.png",
@@ -123,7 +121,7 @@ export default function Home() {
     },
     {
       number: 2,
-      onChange: handleChangeAnswer2,
+      onChange: setAnswer2,
       answer: "B",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       mainImage: "/images/d2.png",
@@ -136,7 +134,7 @@ export default function Home() {
     },
     {
       number: 3,
-      onChange: handleChangeAnswer3,
+      onChange: setAnswer3,
       answer: "B",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       mainImage: "/images/d3.png",
@@ -153,7 +151,7 @@ export default function Home() {
     },
     {
       number: 4,
-      onChange: handleChangeAnswer4,
+      onChange: setAnswer4,
       answer: "A",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       mainImage: "/images/d4.png",
@@ -174,7 +172,7 @@ export default function Home() {
     },
     {
       number: 5,
-      onChange: handleChangeAnswer5,
+      onChange: setAnswer5,
       answer: "D",
       question:
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
@@ -188,7 +186,7 @@ export default function Home() {
     },
     {
       number: 6,
-      onChange: handleChangeAnswer6,
+      onChange: setAnswer6,
       answer: "D",
       question:
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
@@ -202,7 +200,7 @@ export default function Home() {
     },
     {
       number: 7,
-      onChange: handleChangeAnswer7,
+      onChange: setAnswer7,
       answer: "A",
       question:
         "以下の図を見て、?に入る選択肢を選びなさい。 図形は、矢印の先の命令に沿って内容が変換されます。 命令は、変換結果をもとに推測してください。",
@@ -216,7 +214,7 @@ export default function Home() {
     },
     {
       number: 8,
-      onChange: handleChangeAnswer8,
+      onChange: setAnswer8,
       answer: "D",
       question:
         "以下の図を見て、?に入る選択肢を選びなさい。 図形は、矢印の先の命令に沿って内容が変換されます。 命令は、変換結果をもとに推測してください。",
@@ -230,7 +228,7 @@ export default function Home() {
     },
     {
       number: 9,
-      onChange: handleChangeAnswer9,
+      onChange: setAnswer9,
       answer: "A",
       question:
         "以下の文章を読んでください。 プログラミング言語にて、Rubyは動的言語の一種で、Javaは静的言語の一種だ。後者には実行時に事前にコンパイルが必要だが前者は違う。コンパイルは実行時に必要はないのだ。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 コンパイルが必要とされていないものは（　　　）である。",
@@ -243,7 +241,7 @@ export default function Home() {
     },
     {
       number: 10,
-      onChange: handleChangeAnswer10,
+      onChange: setAnswer10,
       answer: "B",
       question:
         "以下の文章を読んでください。 AIの原理上の制約は、データから学習することです。それ以外に知識を取り入れる方法はありません。したがって、データに潜むあらゆる不正確性がそのまま結果に反映されます。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 AIが知識を得るには（　　　）が必要だ。",
@@ -299,8 +297,10 @@ export default function Home() {
                       onChange={(event) => {
                         setName(event.target.value);
                       }}
-                      error={inputError}
-                      helperText={inputError && "入力必須です"}
+                      error={inputError && name === undefined}
+                      helperText={
+                        inputError && name === undefined && "入力必須です"
+                      }
                       fullWidth
                     />
                   </Grid>
@@ -309,7 +309,7 @@ export default function Home() {
                       variant="outlined"
                       onClick={() => {
                         const flg: boolean = name ? true : false;
-                        !flg && setInputError(true);
+                        !flg ? setInputError(true) : setInputError(false);
                         setStart(flg);
                       }}
                       sx={{ height: 55 }}
@@ -334,26 +334,29 @@ export default function Home() {
                           question={item.question}
                           mainImage={item.mainImage}
                           child={item.child}
+                          inputError={inputError}
                         />
                       ))}
                     </Grid>
                   </Grid>
                   <Grid item xs={12}>
-                    <Link
-                      href={{ pathname: "result", query: getParameter() }}
-                      as="result"
+                    <Button
+                      variant="outlined"
+                      onClick={handleClick}
+                      sx={{ height: 55 }}
+                      fullWidth
                     >
-                      <Button
-                        variant="outlined"
-                        onClick={handleClick}
-                        sx={{ height: 55 }}
-                        fullWidth
-                      >
-                        回答する
-                      </Button>
-                    </Link>
+                      回答する
+                    </Button>
                   </Grid>
                 </>
+              )}
+              {open && (
+                <AlertDialog
+                  open={open}
+                  setOpen={setOpen}
+                  handleClick={handleClick}
+                />
               )}
             </Grid>
           </Grid>
