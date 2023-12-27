@@ -11,7 +11,7 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  Card,
+  Box,
 } from "@mui/material";
 import { ReactNode, useState } from "react";
 import AnswerSelect from "./components/AnswerSelect";
@@ -117,52 +117,63 @@ export default function Home() {
       values: VALUES,
       onChange: handleChangeAnswer1,
       answer: "C",
-      question: "この問題を解きなさい。",
+      question: "以下の図を見て、正しい選択肢を選びなさい。",
       html: (
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Image
-              src="/images/d1.png"
-              alt="your_image_alt"
-              width={600}
-              height={600}
-            />
+            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
+              <Image
+                src="/images/d1.png"
+                alt="your_image_alt"
+                width={600}
+                height={600}
+                layout="fixed"
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <Image
-              src="/images/d11.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <Image
+                src="/images/d11.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <Image
-              src="/images/d12.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <Image
+                src="/images/d12.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <Image
-              src="/images/d13.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <Image
+                src="/images/d13.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <Image
-              src="/images/d14.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <Image
+                src="/images/d14.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -172,52 +183,62 @@ export default function Home() {
       values: VALUES,
       onChange: handleChangeAnswer2,
       answer: "B",
-      question: "この問題を解きなさい。",
+      question: "以下の図を見て、正しい選択肢を選びなさい。",
       html: (
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Image
-              src="/images/d2.png"
-              alt="your_image_alt"
-              width={600}
-              height={600}
-            />
+            <Box component="section" sx={{ maxWidth: 600, margin: 'auto', padding: 'auto'}}>
+              <Image
+                src="/images/d2.png"
+                alt="your_image_alt"
+                width={600}
+                height={600}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <Image
-              src="/images/d21.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <Image
+                src="/images/d21.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <Image
-              src="/images/d22.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <Image
+                src="/images/d22.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <Image
-              src="/images/d23.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <Image
+                src="/images/d23.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <Image
-              src="/images/d24.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <Image
+                src="/images/d24.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -227,32 +248,42 @@ export default function Home() {
       values: VALUES,
       onChange: handleChangeAnswer3,
       answer: "B",
-      question: "この問題を解きなさい。",
+      question: "以下の図を見て、正しい選択肢を選びなさい。",
       html: (
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Image
-              src="/images/d3.png"
-              alt="your_image_alt"
-              width={600}
-              height={600}
-            />
+            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
+              <Image
+                src="/images/d3.png"
+                alt="your_image_alt"
+                width={600}
+                height={600}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <AnswerBox answer="線の交差が1つずつ増えている" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <AnswerBox answer="線の交差が1つずつ増えている" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <AnswerBox answer="線が1つずつ増えている" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <AnswerBox answer="線が1つずつ増えている" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <AnswerBox answer="交点があるとき、黒丸が移動している" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <AnswerBox answer="交点があるとき、黒丸が移動している" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <AnswerBox answer="法則性はない" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <AnswerBox answer="法則性はない" />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -262,32 +293,42 @@ export default function Home() {
       values: VALUES,
       onChange: handleChangeAnswer4,
       answer: "A",
-      question: "この問題を解きなさい。",
+      question: "以下の図を見て、正しい選択肢を選びなさい。",
       html: (
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Image
-              src="/images/d4.png"
-              alt="your_image_alt"
-              width={600}
-              height={600}
-            />
+            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
+              <Image
+                src="/images/d4.png"
+                alt="your_image_alt"
+                width={600}
+                height={600}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <AnswerBox answer="左から順に丸が時計回りに移動している" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <AnswerBox answer="左から順に丸が時計回りに移動している" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <AnswerBox answer="ひし形がランダムに移動している" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <AnswerBox answer="ひし形がランダムに移動している" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <AnswerBox answer="左から順にひし形が時計回りに移動している" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <AnswerBox answer="左から順にひし形が時計回りに移動している" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <AnswerBox answer="法則性はない" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <AnswerBox answer="法則性はない" />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -301,29 +342,39 @@ export default function Home() {
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
       html: (
         <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Image
-              src="/images/d5.png"
-              alt="your_image_alt"
-              width={600}
-              height={600}
-            />
+            <Grid item xs={12}>
+            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
+              <Image
+                src="/images/d5.png"
+                alt="your_image_alt"
+                width={600}
+                height={600}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <AnswerBox answer="A" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <AnswerBox answer="A" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <AnswerBox answer="B" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <AnswerBox answer="B" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <AnswerBox answer="C" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <AnswerBox answer="C" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <AnswerBox answer="D" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <AnswerBox answer="D" />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -338,28 +389,38 @@ export default function Home() {
       html: (
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Image
-              src="/images/d6.png"
-              alt="your_image_alt"
-              width={600}
-              height={600}
-            />
+            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
+              <Image
+                src="/images/d6.png"
+                alt="your_image_alt"
+                width={600}
+                height={600}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <AnswerBox answer="A" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <AnswerBox answer="A" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <AnswerBox answer="B" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <AnswerBox answer="B" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <AnswerBox answer="C" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <AnswerBox answer="C" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <AnswerBox answer="D" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <AnswerBox answer="D" />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -374,48 +435,58 @@ export default function Home() {
       html: (
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Image
-              src="/images/d7.png"
-              alt="your_image_alt"
-              width={600}
-              height={600}
-            />
+            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
+              <Image
+                src="/images/d7.png"
+                alt="your_image_alt"
+                width={600}
+                height={600}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <Image
-              src="/images/d71.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <Image
+                src="/images/d71.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <Image
-              src="/images/d72.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <Image
+                src="/images/d72.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <Image
-              src="/images/d73.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <Image
+                src="/images/d73.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <Image
-              src="/images/d74.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <Image
+                src="/images/d74.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -430,48 +501,58 @@ export default function Home() {
       html: (
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Image
-              src="/images/d8.png"
-              alt="your_image_alt"
-              width={600}
-              height={600}
-            />
+            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
+              <Image
+                src="/images/d8.png"
+                alt="your_image_alt"
+                width={600}
+                height={600}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <Image
-              src="/images/d81.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <Image
+                src="/images/d81.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <Image
-              src="/images/d82.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <Image
+                src="/images/d82.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <Image
-              src="/images/d83.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <Image
+                src="/images/d83.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <Image
-              src="/images/d84.png"
-              alt="your_image_alt"
-              width={100}
-              height={100}
-            />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <Image
+                src="/images/d84.png"
+                alt="your_image_alt"
+                width={100}
+                height={100}
+              />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -486,20 +567,28 @@ export default function Home() {
       html: (
         <Grid container spacing={3}>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <AnswerBox answer="Ruby" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <AnswerBox answer="Ruby" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <AnswerBox answer="プログラミング言語" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <AnswerBox answer="プログラミング言語" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <AnswerBox answer="実行" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <AnswerBox answer="実行" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <AnswerBox answer="Java" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <AnswerBox answer="Java" />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -514,20 +603,28 @@ export default function Home() {
       html: (
         <Grid container spacing={3}>
           <Grid item xs={6} lg={3}>
-            <InputLabel>A</InputLabel>
-            <AnswerBox answer="不確実性" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>A</InputLabel>
+              <AnswerBox answer="不確実性" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>B</InputLabel>
-            <AnswerBox answer="データ" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>B</InputLabel>
+              <AnswerBox answer="データ" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>C</InputLabel>
-            <AnswerBox answer="制約" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>C</InputLabel>
+              <AnswerBox answer="制約" />
+            </Box>
           </Grid>
           <Grid item xs={6} lg={3}>
-            <InputLabel>D</InputLabel>
-            <AnswerBox answer="結果" />
+            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <InputLabel>D</InputLabel>
+              <AnswerBox answer="結果" />
+            </Box>
           </Grid>
         </Grid>
       ),
@@ -569,7 +666,7 @@ export default function Home() {
                     </InputLabel>
                     <InputLabel></InputLabel>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={10}>
                     <TextField
                       id="name"
                       label="氏名"
@@ -578,15 +675,18 @@ export default function Home() {
                       onChange={(event) => {
                         setName(event.target.value);
                       }}
+                      fullWidth 
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={2}>
                     <Button
                       variant="outlined"
                       onClick={() => {
                         const flg: boolean = name ? true : false;
                         setStart(flg);
                       }}
+                      sx={{ height: 55}}
+                      fullWidth 
                     >
                       開始
                     </Button>
