@@ -38,7 +38,7 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
   };
   return (
     <Grid item xs={12}>
-      <Card color="primary">
+      <Card color="primary" sx={{ padding: 5}}>
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           <Grid item xs={11}>
             <Typography variant="h5" component="h2">
@@ -65,7 +65,7 @@ const AnswerSelect: React.FC<AnswerSelectProps> = ({
           <Grid item xs={11}>
             <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
               <FormControl variant="standard" fullWidth>
-                <InputLabel>回答{number}</InputLabel>
+                <InputLabel >回答{number}</InputLabel>
                 <Select
                   value={value}
                   onChange={(event) => handleChange(event)}
