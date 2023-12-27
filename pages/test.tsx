@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   Button,
   Grid,
@@ -12,14 +11,12 @@ import {
   IconButton,
   Box,
 } from "@mui/material";
-import { ReactNode, useState } from "react";
-import AnswerSelect from "../components/AnswerSelect";
-import AnswerBox from "../components/AnswerBox";
+import { useState } from "react";
+import AnswerSelect, { AnswerSelectProps } from "../components/AnswerSelect";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import styles from "./style.module.css";
 import '../app/globals.css'
-import QuestionBox from "@/components/QuestionBox";
 
 export default function Home() {
   const [start, setStart] = useState<boolean>(false);
@@ -98,176 +95,142 @@ export default function Home() {
       .catch((error) => console.error("Error:", error));
   };
 
-  type AnswerType = {
-    number: number;
-    values: string[];
-    onChange: (item: string) => void;
-    answer: string;
-    question?: string;
-    html?: ReactNode;
-  };
-  type childType = {
-    id: string;
-    type: 'image' | 'string';
-    choice: string;
-  }
-  
-
-  const VALUES = ["A", "B", "C", "D"];
-  const data: Array<AnswerType> = [
+  const data: Array<AnswerSelectProps> = [
     {
       number: 1,
-      values: VALUES,
       onChange: handleChangeAnswer1,
       answer: "C",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
-      html: (
-        <QuestionBox mainImage='/images/d2.png' child={[
-          {id:'A',type:'image',choice:'/images/d11.png'},
-          {id:'B',type:'image',choice:'/images/d12.png'},
-          {id:'C',type:'image',choice:'/images/d13.png'},
-          {id:'D',type:'image',choice:'/images/d14.png'},
-        ]}/>
-      ),
+      mainImage:'/images/d1.png',
+      child:[
+        {id:'A',type:'image',choice:'/images/d11.png'},
+        {id:'B',type:'image',choice:'/images/d12.png'},
+        {id:'C',type:'image',choice:'/images/d13.png'},
+        {id:'D',type:'image',choice:'/images/d14.png'},
+      ]
     },
     {
       number: 2,
-      values: VALUES,
       onChange: handleChangeAnswer2,
       answer: "B",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
-      html: (
-        <QuestionBox mainImage='/images/d2.png' child={[
-          {id:'A',type:'image',choice:'/images/d21.png'},
-          {id:'B',type:'image',choice:'/images/d22.png'},
-          {id:'C',type:'image',choice:'/images/d23.png'},
-          {id:'D',type:'image',choice:'/images/d24.png'},
-        ]}/>
-      ),
+      mainImage:'/images/d2.png',
+      child:[
+        {id:'A',type:'image',choice:'/images/d21.png'},
+        {id:'B',type:'image',choice:'/images/d22.png'},
+        {id:'C',type:'image',choice:'/images/d23.png'},
+        {id:'D',type:'image',choice:'/images/d24.png'},
+      ]
     },
     {
       number: 3,
-      values: VALUES,
       onChange: handleChangeAnswer3,
       answer: "B",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
-      html: (
-        <QuestionBox mainImage='/images/d3.png' child={[
-          {id:'A',type:'string',choice:'線の交差が1つずつ増えている'},
-          {id:'B',type:'string',choice:'線が1つずつ増えている'},
-          {id:'C',type:'string',choice:'交点があるとき、黒丸が移動している'},
-          {id:'D',type:'string',choice:'法則性はない'},
-        ]}/>
-      ),
+      mainImage:'/images/d3.png',
+      child:[
+        {id:'A',type:'string',choice:'線の交差が1つずつ増えている'},
+        {id:'B',type:'string',choice:'線が1つずつ増えている'},
+        {id:'C',type:'string',choice:'交点があるとき、黒丸が移動している'},
+        {id:'D',type:'string',choice:'法則性はない'},
+      ]
     },
     {
       number: 4,
-      values: VALUES,
       onChange: handleChangeAnswer4,
       answer: "A",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
-      html: (
-        <QuestionBox mainImage='/images/d4.png' child={[
-          {id:'A',type:'string',choice:'左から順に丸が時計回りに移動している'},
-          {id:'B',type:'string',choice:'ひし形がランダムに移動している'},
-          {id:'C',type:'string',choice:'左から順にひし形が時計回りに移動している'},
-          {id:'D',type:'string',choice:'法則性はない'},
-        ]}/>
-      ),
+      mainImage:'/images/d4.png',
+      child:[
+        {id:'A',type:'string',choice:'左から順に丸が時計回りに移動している'},
+        {id:'B',type:'string',choice:'ひし形がランダムに移動している'},
+        {id:'C',type:'string',choice:'左から順にひし形が時計回りに移動している'},
+        {id:'D',type:'string',choice:'法則性はない'},
+      ]
     },
     {
       number: 5,
-      values: VALUES,
       onChange: handleChangeAnswer5,
       answer: "D",
       question:
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
-      html: (
-        <QuestionBox mainImage='/images/d5.png' child={[
-          {id:'A',type:'string',choice:'A'},
-          {id:'B',type:'string',choice:'B'},
-          {id:'C',type:'string',choice:'C'},
-          {id:'D',type:'string',choice:'D'},
-        ]}/>
-      ),
+      mainImage:'/images/d5.png',
+      child:[
+        {id:'A',type:'string',choice:'A'},
+        {id:'B',type:'string',choice:'B'},
+        {id:'C',type:'string',choice:'C'},
+        {id:'D',type:'string',choice:'D'},
+      ]
     },
     {
       number: 6,
-      values: VALUES,
       onChange: handleChangeAnswer6,
       answer: "D",
       question:
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
-      html: (
-        <QuestionBox mainImage='/images/d6.png' child={[
-          {id:'A',type:'string',choice:'A'},
-          {id:'B',type:'string',choice:'B'},
-          {id:'C',type:'string',choice:'C'},
-          {id:'D',type:'string',choice:'D'},
-        ]}/>      ),
+      mainImage:'/images/d6.png',
+      child:[
+        {id:'A',type:'string',choice:'A'},
+        {id:'B',type:'string',choice:'B'},
+        {id:'C',type:'string',choice:'C'},
+        {id:'D',type:'string',choice:'D'},
+      ]
     },
     {
       number: 7,
-      values: VALUES,
       onChange: handleChangeAnswer7,
       answer: "A",
       question:
         "以下の図を見て、?に入る選択肢を選びなさい。 図形は、矢印の先の命令に沿って内容が変換されます。 命令は、変換結果をもとに推測してください。",
-      html: (
-        <QuestionBox mainImage='/images/d7.png' child={[
-          {id:'A',type:'image',choice:'/images/d71.png'},
-          {id:'B',type:'image',choice:'/images/d72.png'},
-          {id:'C',type:'image',choice:'/images/d73.png'},
-          {id:'D',type:'image',choice:'/images/d74.png'},
-        ]}/>
-      ),
+      mainImage:'/images/d7.png',
+      child:[
+        {id:'A',type:'image',choice:'/images/d71.png'},
+        {id:'B',type:'image',choice:'/images/d72.png'},
+        {id:'C',type:'image',choice:'/images/d73.png'},
+        {id:'D',type:'image',choice:'/images/d74.png'},
+      ]
     },
     {
       number: 8,
-      values: VALUES,
       onChange: handleChangeAnswer8,
       answer: "D",
       question:
         "以下の図を見て、?に入る選択肢を選びなさい。 図形は、矢印の先の命令に沿って内容が変換されます。 命令は、変換結果をもとに推測してください。",
-      html: (
-        <QuestionBox mainImage='/images/d8.png' child={[
-          {id:'A',type:'image',choice:'/images/d81.png'},
-          {id:'B',type:'image',choice:'/images/d82.png'},
-          {id:'C',type:'image',choice:'/images/d83.png'},
-          {id:'D',type:'image',choice:'/images/d84.png'},
-        ]}/>      ),
+      mainImage:'/images/d8.png',
+      child:[
+        {id:'A',type:'image',choice:'/images/d81.png'},
+        {id:'B',type:'image',choice:'/images/d82.png'},
+        {id:'C',type:'image',choice:'/images/d83.png'},
+        {id:'D',type:'image',choice:'/images/d84.png'},
+      ]
     },
     {
       number: 9,
-      values: VALUES,
       onChange: handleChangeAnswer9,
       answer: "A",
       question:
         "以下の文章を読んでください。 プログラミング言語にて、Rubyは動的言語の一種で、Javaは静的言語の一種だ。後者には実行時に事前にコンパイルが必要だが前者は違う。コンパイルは実行時に必要はないのだ。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 コンパイルが必要とされていないものは（　　　）である。",
-      html: (
-        <QuestionBox child={[
-          {id:'A',type:'string',choice:'Ruby'},
-          {id:'B',type:'string',choice:'プログラミング言語'},
-          {id:'C',type:'string',choice:'実行'},
-          {id:'D',type:'string',choice:'Java'},
-        ]}/>
-      ),
+      mainImage:'/images/d8.png',
+      child:[
+        {id:'A',type:'string',choice:'Ruby'},
+        {id:'B',type:'string',choice:'プログラミング言語'},
+        {id:'C',type:'string',choice:'実行'},
+        {id:'D',type:'string',choice:'Java'},
+      ]
     },
     {
       number: 10,
-      values: VALUES,
       onChange: handleChangeAnswer10,
       answer: "B",
       question:
         "以下の文章を読んでください。 AIの原理上の制約は、データから学習することです。それ以外に知識を取り入れる方法はありません。したがって、データに潜むあらゆる不正確性がそのまま結果に反映されます。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 AIが知識を得るには（　　　）が必要だ。",
-      html: (
-        <QuestionBox child={[
-          {id:'A',type:'string',choice:'不確実性'},
-          {id:'B',type:'string',choice:'データ'},
-          {id:'C',type:'string',choice:'制約'},
-          {id:'D',type:'string',choice:'結果'},
-        ]}/>
-      ),
+      mainImage:'/images/d8.png',
+      child:[
+        {id:'A',type:'string',choice:'不確実性'},
+        {id:'B',type:'string',choice:'データ'},
+        {id:'C',type:'string',choice:'制約'},
+        {id:'D',type:'string',choice:'結果'},
+      ]
     },
   ];
 
@@ -350,13 +313,14 @@ export default function Home() {
                           onChange={item.onChange}
                           answer={item.answer}
                           question={item.question}
-                          html={item.html}
+                          mainImage={item.mainImage}
+                          child={item.child}
                         />
                       ))}
                     </Grid>
                   </Grid>
                   <Grid item xs={12}>
-                  <Link
+                    <Link
                       href={{ pathname: "result", query: {
                         // ここにPOSTで送りたいデータを追加
                         name: name,
