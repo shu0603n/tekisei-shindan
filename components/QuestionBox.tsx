@@ -18,12 +18,17 @@ type childType = {
 interface QuestionBoxProps {
   mainImage?: string;
   child:Array<childType>
+  onClick: (item: string) => void;
 }
 
 const QuestionBox: React.FC<QuestionBoxProps> = ({
   mainImage,
   child,
+  onClick
 }) => {
+  const handleClick = (item: string) => {
+    // onClick(item);
+  };
   return (
     <Grid container spacing={3}>
       {mainImage && 
@@ -44,7 +49,7 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
         if(item.type === 'image'){
           return (
             <Grid item xs={6} lg={3} key={item.id}>
-              <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}} onClick={()=>{handleClick(item.id)}}>
                 <InputLabel>{item.id}</InputLabel>
                 <Image
                   src={item.choice}
@@ -58,7 +63,7 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
         } else {
           return (
             <Grid item xs={6} lg={3} key={item.id}>
-              <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
+              <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}} onClick={()=>{handleClick(item.id)}}>
                 <InputLabel>{item.id}</InputLabel>
                 <AnswerBox answer={item.choice} />
               </Box>
