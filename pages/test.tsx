@@ -19,6 +19,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import styles from "./style.module.css";
 import '../app/globals.css'
+import QuestionBox from "@/components/QuestionBox";
 
 export default function Home() {
   const [start, setStart] = useState<boolean>(false);
@@ -105,6 +106,12 @@ export default function Home() {
     question?: string;
     html?: ReactNode;
   };
+  type childType = {
+    id: string;
+    type: 'image' | 'string';
+    choice: string;
+  }
+  
 
   const VALUES = ["A", "B", "C", "D"];
   const data: Array<AnswerType> = [
@@ -115,63 +122,12 @@ export default function Home() {
       answer: "C",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
-              <Image
-                src="/images/d1.png"
-                alt="your_image_alt"
-                width={600}
-                height={600}
-                layout="fixed"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <Image
-                src="/images/d11.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <Image
-                src="/images/d12.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <Image
-                src="/images/d13.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <Image
-                src="/images/d14.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-        </Grid>
+        <QuestionBox mainImage='/images/d2.png' child={[
+          {id:'A',type:'image',choice:'/images/d11.png'},
+          {id:'B',type:'image',choice:'/images/d12.png'},
+          {id:'C',type:'image',choice:'/images/d13.png'},
+          {id:'D',type:'image',choice:'/images/d14.png'},
+        ]}/>
       ),
     },
     {
@@ -181,62 +137,12 @@ export default function Home() {
       answer: "B",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Box component="section" sx={{ maxWidth: 600, margin: 'auto', padding: 'auto'}}>
-              <Image
-                src="/images/d2.png"
-                alt="your_image_alt"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <Image
-                src="/images/d21.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <Image
-                src="/images/d22.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <Image
-                src="/images/d23.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <Image
-                src="/images/d24.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-        </Grid>
+        <QuestionBox mainImage='/images/d2.png' child={[
+          {id:'A',type:'image',choice:'/images/d21.png'},
+          {id:'B',type:'image',choice:'/images/d22.png'},
+          {id:'C',type:'image',choice:'/images/d23.png'},
+          {id:'D',type:'image',choice:'/images/d24.png'},
+        ]}/>
       ),
     },
     {
@@ -246,42 +152,12 @@ export default function Home() {
       answer: "B",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
-              <Image
-                src="/images/d3.png"
-                alt="your_image_alt"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <AnswerBox answer="線の交差が1つずつ増えている" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <AnswerBox answer="線が1つずつ増えている" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <AnswerBox answer="交点があるとき、黒丸が移動している" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <AnswerBox answer="法則性はない" />
-            </Box>
-          </Grid>
-        </Grid>
+        <QuestionBox mainImage='/images/d3.png' child={[
+          {id:'A',type:'string',choice:'線の交差が1つずつ増えている'},
+          {id:'B',type:'string',choice:'線が1つずつ増えている'},
+          {id:'C',type:'string',choice:'交点があるとき、黒丸が移動している'},
+          {id:'D',type:'string',choice:'法則性はない'},
+        ]}/>
       ),
     },
     {
@@ -291,42 +167,12 @@ export default function Home() {
       answer: "A",
       question: "以下の図を見て、正しい選択肢を選びなさい。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
-              <Image
-                src="/images/d4.png"
-                alt="your_image_alt"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <AnswerBox answer="左から順に丸が時計回りに移動している" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <AnswerBox answer="ひし形がランダムに移動している" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <AnswerBox answer="左から順にひし形が時計回りに移動している" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <AnswerBox answer="法則性はない" />
-            </Box>
-          </Grid>
-        </Grid>
+        <QuestionBox mainImage='/images/d4.png' child={[
+          {id:'A',type:'string',choice:'左から順に丸が時計回りに移動している'},
+          {id:'B',type:'string',choice:'ひし形がランダムに移動している'},
+          {id:'C',type:'string',choice:'左から順にひし形が時計回りに移動している'},
+          {id:'D',type:'string',choice:'法則性はない'},
+        ]}/>
       ),
     },
     {
@@ -337,42 +183,12 @@ export default function Home() {
       question:
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
       html: (
-        <Grid container spacing={3}>
-            <Grid item xs={12}>
-            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
-              <Image
-                src="/images/d5.png"
-                alt="your_image_alt"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <AnswerBox answer="A" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <AnswerBox answer="B" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <AnswerBox answer="C" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <AnswerBox answer="D" />
-            </Box>
-          </Grid>
-        </Grid>
+        <QuestionBox mainImage='/images/d5.png' child={[
+          {id:'A',type:'string',choice:'A'},
+          {id:'B',type:'string',choice:'B'},
+          {id:'C',type:'string',choice:'C'},
+          {id:'D',type:'string',choice:'D'},
+        ]}/>
       ),
     },
     {
@@ -383,43 +199,12 @@ export default function Home() {
       question:
         "以下の図を見て、正しい選択肢を選びなさい。 問と記述されている図形に対して、丸記号の命令処理がなされます。 命令を上から順に実行したとき、正しい図形の順をA~Dの中から選択してください。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
-              <Image
-                src="/images/d6.png"
-                alt="your_image_alt"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <AnswerBox answer="A" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <AnswerBox answer="B" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <AnswerBox answer="C" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <AnswerBox answer="D" />
-            </Box>
-          </Grid>
-        </Grid>
-      ),
+        <QuestionBox mainImage='/images/d6.png' child={[
+          {id:'A',type:'string',choice:'A'},
+          {id:'B',type:'string',choice:'B'},
+          {id:'C',type:'string',choice:'C'},
+          {id:'D',type:'string',choice:'D'},
+        ]}/>      ),
     },
     {
       number: 7,
@@ -429,62 +214,12 @@ export default function Home() {
       question:
         "以下の図を見て、?に入る選択肢を選びなさい。 図形は、矢印の先の命令に沿って内容が変換されます。 命令は、変換結果をもとに推測してください。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
-              <Image
-                src="/images/d7.png"
-                alt="your_image_alt"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <Image
-                src="/images/d71.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <Image
-                src="/images/d72.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <Image
-                src="/images/d73.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <Image
-                src="/images/d74.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-        </Grid>
+        <QuestionBox mainImage='/images/d7.png' child={[
+          {id:'A',type:'image',choice:'/images/d71.png'},
+          {id:'B',type:'image',choice:'/images/d72.png'},
+          {id:'C',type:'image',choice:'/images/d73.png'},
+          {id:'D',type:'image',choice:'/images/d74.png'},
+        ]}/>
       ),
     },
     {
@@ -495,63 +230,12 @@ export default function Home() {
       question:
         "以下の図を見て、?に入る選択肢を選びなさい。 図形は、矢印の先の命令に沿って内容が変換されます。 命令は、変換結果をもとに推測してください。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Box component="section" sx={{ maxWidth: 600, margin: 'auto'}}>
-              <Image
-                src="/images/d8.png"
-                alt="your_image_alt"
-                width={600}
-                height={600}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <Image
-                src="/images/d81.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <Image
-                src="/images/d82.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <Image
-                src="/images/d83.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <Image
-                src="/images/d84.png"
-                alt="your_image_alt"
-                width={100}
-                height={100}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-      ),
+        <QuestionBox mainImage='/images/d8.png' child={[
+          {id:'A',type:'image',choice:'/images/d81.png'},
+          {id:'B',type:'image',choice:'/images/d82.png'},
+          {id:'C',type:'image',choice:'/images/d83.png'},
+          {id:'D',type:'image',choice:'/images/d84.png'},
+        ]}/>      ),
     },
     {
       number: 9,
@@ -561,32 +245,12 @@ export default function Home() {
       question:
         "以下の文章を読んでください。 プログラミング言語にて、Rubyは動的言語の一種で、Javaは静的言語の一種だ。後者には実行時に事前にコンパイルが必要だが前者は違う。コンパイルは実行時に必要はないのだ。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 コンパイルが必要とされていないものは（　　　）である。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <AnswerBox answer="Ruby" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <AnswerBox answer="プログラミング言語" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <AnswerBox answer="実行" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <AnswerBox answer="Java" />
-            </Box>
-          </Grid>
-        </Grid>
+        <QuestionBox child={[
+          {id:'A',type:'string',choice:'Ruby'},
+          {id:'B',type:'string',choice:'プログラミング言語'},
+          {id:'C',type:'string',choice:'実行'},
+          {id:'D',type:'string',choice:'Java'},
+        ]}/>
       ),
     },
     {
@@ -597,32 +261,12 @@ export default function Home() {
       question:
         "以下の文章を読んでください。 AIの原理上の制約は、データから学習することです。それ以外に知識を取り入れる方法はありません。したがって、データに潜むあらゆる不正確性がそのまま結果に反映されます。 この文脈において、以下の文中の空欄にあてはまる最も適切なものを1つ選びなさい。 AIが知識を得るには（　　　）が必要だ。",
       html: (
-        <Grid container spacing={3}>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>A</InputLabel>
-              <AnswerBox answer="不確実性" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>B</InputLabel>
-              <AnswerBox answer="データ" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>C</InputLabel>
-              <AnswerBox answer="制約" />
-            </Box>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <Box component="section" sx={{ display: 'flex',flexDirection: 'column',alignItems: 'center'}}>
-              <InputLabel>D</InputLabel>
-              <AnswerBox answer="結果" />
-            </Box>
-          </Grid>
-        </Grid>
+        <QuestionBox child={[
+          {id:'A',type:'string',choice:'不確実性'},
+          {id:'B',type:'string',choice:'データ'},
+          {id:'C',type:'string',choice:'制約'},
+          {id:'D',type:'string',choice:'結果'},
+        ]}/>
       ),
     },
   ];
