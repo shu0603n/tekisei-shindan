@@ -40,7 +40,7 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
         </Grid>
       }
       
-      {child.map((item)=>{
+      {child?.map((item)=>{
         if(item.type === 'image'){
           return (
             <Grid item xs={6} lg={3} key={item.id}>
