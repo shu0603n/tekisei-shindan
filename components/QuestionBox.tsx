@@ -27,7 +27,7 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
   onClick
 }) => {
   const handleClick = (item: string) => {
-    // onClick(item);
+    onClick(item);
   };
   return (
     <Grid container spacing={3}>
