@@ -711,18 +711,16 @@ export default function Home() {
                       href={{ pathname: "result", query: {
                         // ここにPOSTで送りたいデータを追加
                         name: name,
-                        answers: [
-                          answer1 ?? '-' ,
-                          answer2 ?? '-' ,
-                          answer3 ?? '-' ,
-                          answer4 ?? '-' ,
-                          answer5 ?? '-' ,
-                          answer6 ?? '-' ,
-                          answer7 ?? '-' ,
-                          answer8 ?? '-' ,
-                          answer9 ?? '-' ,
-                          answer10 ?? '-' ,
-                        ],
+                        answer1: answer1 ?? '-' ,
+                        answer2: answer2 ?? '-' ,
+                        answer3: answer3 ?? '-' ,
+                        answer4: answer4 ?? '-' ,
+                        answer5: answer5 ?? '-' ,
+                        answer6: answer6 ?? '-' ,
+                        answer7: answer7 ?? '-' ,
+                        answer8: answer8 ?? '-' ,
+                        answer9: answer9 ?? '-' ,
+                        answer10: answer10 ?? '-' ,
                         // 他のデータも必要に応じて追加
                       }}}
                       as="result"
