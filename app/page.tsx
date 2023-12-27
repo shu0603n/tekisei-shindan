@@ -1,20 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import {
   Button,
   Grid,
-  InputLabel,
-  TextField,
   AppBar,
   Toolbar,
   Typography,
   IconButton,
-  Box,
 } from "@mui/material";
-import { ReactNode, useState } from "react";
-import AnswerSelect from "./components/AnswerSelect";
-import AnswerBox from "./components/AnswerBox";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import styles from "./style.module.css";
