@@ -1,6 +1,6 @@
 これは、[`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages でブートストラップされた [Next.js](https://nextjs.org/) プロジェクトです) /create-next-app)。
 
-＃＃ はじめる
+## はじめる
 
 まず、開発サーバーを実行します。
 
@@ -14,7 +14,7 @@ yarn dev
 
 このプロジェクトは、[`next/font`](https://nextjs.org/docs/basic-features/font-optimization) を使用して、カスタム Google フォントである Inter を自動的に最適化し、読み込みます。
 
-＃＃ もっと詳しく知る
+## もっと詳しく知る
 
 Next.js について詳しくは、次のリソースをご覧ください。
 
